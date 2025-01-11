@@ -6,7 +6,7 @@ from sklearn.metrics import precision_score, recall_score, roc_auc_score
 import json
 
 #reading model in binary mode
-clf=pickle.load(open('src/models/model.pkl','rb'))
+clf=pickle.load(open('models/model.pkl','rb'))
 
 test_df=pd.read_csv('./data/processed/test_bow.csv')
 
@@ -30,5 +30,5 @@ metrics_dict={
     'auc_score':auc
 }
 
-with open('src/models/metrics.json','w') as file:
+with open('reports/metrics.json','w') as file:
     json.dump(metrics_dict,file,indent=4)

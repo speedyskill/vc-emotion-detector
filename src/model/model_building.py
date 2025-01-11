@@ -44,14 +44,9 @@ def train_model(X_train, y_train, n_estimators, learning_rate):
 
 # Function to save the model
 def save_model(model, model_filename):
-
-    models_path = os.path.join('src', 'models')  # Path to 'src/models' directory
-    
-    # Create the folder if it doesn't exist
-    os.makedirs(models_path, exist_ok=True)
     
     # Full path to save the model
-    model_filepath = os.path.join(models_path, model_filename)
+    model_filepath = os.path.join('models', model_filename)
 
     try:
         with open(model_filepath, 'wb') as model_file:
