@@ -8,7 +8,7 @@ import json
 #reading model in binary mode
 clf=pickle.load(open('models/model.pkl','rb'))
 
-test_df=pd.read_csv('./data/processed/test_bow.csv')
+test_df=pd.read_csv('./data/processed/test_tfid.csv')
 
 X_test = test_df.iloc[:, :-1].values  # Features
 y_test = test_df.iloc[:, -1].values   # Target labels

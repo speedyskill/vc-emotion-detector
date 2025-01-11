@@ -65,7 +65,7 @@ def build_and_save_model():
         return
 
     # Load training data
-    train_df = load_training_data('./data/processed/train_bow.csv')
+    train_df = load_training_data('./data/processed/train_tfid.csv')
 
     if train_df is None:
         logging.error("Training data not found. Exiting.")

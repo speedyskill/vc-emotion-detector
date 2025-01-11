@@ -2,7 +2,7 @@ import os
 import logging
 import pandas as pd
 import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 import yaml
 
 # Set up logging
@@ -45,10 +45,10 @@ def create_data_directory(path):
 
 # Function to vectorize text data
 def vectorize_text(X_train, X_test, max_features):
-    vectorizer = CountVectorizer(max_features=max_features)
+    vectorizer = TfidfVectorizer(max_features=max_features)
     X_train_bow = vectorizer.fit_transform(X_train)
     X_test_bow = vectorizer.transform(X_test)
-    logging.info("Text data vectorized using CountVectorizer.")
+    logging.info("Text data vectorized using TfidVectorizer.")
     return X_train_bow, X_test_bow, vectorizer
 
 # Function to save data to CSV
@@ -62,8 +62,8 @@ def save_to_csv(X_train_bow, X_test_bow, y_train, y_test, vectorizer):
     data_path = os.path.join('data', 'processed')
     create_data_directory(data_path)
 
-    train_df.to_csv(os.path.join(data_path, 'train_bow.csv'), index=False)
-    test_df.to_csv(os.path.join(data_path, 'test_bow.csv'), index=False)
+    train_df.to_csv(os.path.join(data_path, 'train_tfid.csv'), index=False)
+    test_df.to_csv(os.path.join(data_path, 'test_tfid.csv'), index=False)
     logging.info("Processed data saved to 'data/processed'.")
 
 # Main function to process the data
